@@ -1,0 +1,16 @@
+/*
+ * Главный файл стилей.
+ * Все паршалы подключаются сюда.
+ */
+
+// Стили для файла с примером HTML-фрагмента
+// @import './example';
+
+.country-field {
+  width: 240px;
+  height: 40px;
+  background-color: rgba(241, 226, 226, 0.747);
+  color: rgb(18, 104, 18);
+  font-weight: 700;
+  margin: 15px 0 0 20px;
+}
