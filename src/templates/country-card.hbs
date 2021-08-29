@@ -1,20 +1,18 @@
 <div class="card">
     {{#each this}}
     <h2 class="header">{{this.name}}</h2>
-    <img src='{{this.flag}}' alt=`Flag of {{this.name}}`></img>
-    <ul>
-        <li><span class="card-subtitle">Capital:</span> {{this.capital}}</li>
-        <li><span class="card-subtitle">Population:</span> {{this.population}}</li>
-        <li><span class="card-subtitle">Languages:</span> {{this.languages}}
+    <img src='{{this.flag}}' alt=`Flag of {{this.name}}` class='picture'></img>
+    <ul class="country-features">
+        <li class="list-item"><span class="card-subtitle">Capital:</span> {{this.capital}}</li>
+        <li class="list-item"><span class="card-subtitle">Population:</span> {{this.population}}</li>
+        <li class="list-item"><span class="card-subtitle">Languages:</span> 
             <ul>
             {{#each this.languages}}
-            <li class="list-item">{{name}}</li>
+            <li>{{name}}</li>
             {{/each}}
             </ul> 
         </li>
     </ul>
     {{/each}}
 </div>
-
-
 

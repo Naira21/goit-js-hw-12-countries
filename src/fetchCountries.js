@@ -5,21 +5,18 @@ export default class ApiService {
   }
 
   searchCountryByName() {
-    // https://restcountries.eu/rest/v2/name/eesti
     const url = `${this.baseUrl}name/${this.searchQuery}`;
-
-    // запрет отправки пустой строки
 
     if (!this.searchQuery) {
       return;
     }
 
     return fetch(url).then(reply => {
-      if (reply) {
+      if (reply.ok) {
         return reply.json();
       }
 
-      throw new Error('ошибка');
+      throw new Error('Error');
     });
   }
 }
