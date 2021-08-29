@@ -1,6 +1,9 @@
 import './sass/main.scss';
+// import countryMarkup from './country-card.hbs'
+import debounce from 'lodash.debounce';
 
-const container = document.querySelector('#root'); //вешаем разметку
+
+const container = document.querySelector('#root'); 
 const countrySearch = document.querySelector('#input');
 
 
@@ -15,14 +18,23 @@ const handlerSearch = (e) => {
   .catch(err => console.log('error', err));
 }
 
+
+
 function createCountryCard({flag, name, capital, population, languages}) {
-  const card = `<article>    
-    <p>${name}</p>  
-    <img scr='${flag}' alt='Flag of ${name}'></img>
-    <p>Capital: ${capital}</p> 
-    <p>Population: ${population}</p>
-    <p>Languages: ${languages[name]}</p>
-  </article>`
+  const card = `
+  <div class="card">
+    <h1 class="header">${name}</h1>
+    <img src='${flag}' alt='Flag of ${name}'></img>
+    <ul>
+      <li><span class="card-item">Capital:</span> ${capital}</li>
+      <li><span class="card-item">Population:</span> ${population}</li>
+      <li><span class="card-item">Languages:</span> ${languages}</li>
+      <ul>
+        <li class="list-item">${name}</li>
+      </ul>
+    </ul>
+    
+</div>`
   container.insertAdjacentHTML('beforeend', card);
 }
 
@@ -31,4 +43,12 @@ console.log(arr);
   arr.forEach(el => createCountryCard(el));
 }
 
-countrySearch.addEventListener('input', handlerSearch);
+countrySearch.addEventListener('input', debounce(handlerSearch, 500));
+
+if (data.length > 10) {
+  alert("Too many matches found. Please enter a more specific query!");
+} else {
+  if (data.length < 10 && data.length > 2) {
+    
+  }
+}
