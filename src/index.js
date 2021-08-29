@@ -6,6 +6,7 @@ import countriesList from './templates/countries-list'
 import debounce from 'lodash.debounce';
 import { alert, error } from '../node_modules/@pnotify/core/dist/PNotify.js';
 import ApiService from './fetchCountries';
+import '@pnotify/core/dist/BrightTheme.css';
 
 //refs
 const container = document.querySelector('#root'); 
