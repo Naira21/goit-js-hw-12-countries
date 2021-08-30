@@ -8,7 +8,7 @@ export default class ApiService {
     const url = `${this.baseUrl}name/${this.searchQuery}`;
 
     if (!this.searchQuery) {
-      return;
+      return undefined;
     }
 
     return fetch(url).then(reply => {
